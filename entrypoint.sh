@@ -10,7 +10,11 @@ echo "Saving SSH key"
 echo "$PRIVATE_KEY" > "$SSH_PATH/deploy_key"
 chmod 600 "$SSH_PATH/deploy_key"
 
-GIT_COMMAND="git push dokku@$HOST:$PROJECT"
+echo "Adding dokku as a git remote"
+
+GIT_SSH_COMMAND="git remote add dokku@$HOST:$PROJECT &&"
+
+GIT_COMMAND="$GIT_COMMAND git push"
 
 if [ -n "$BRANCH" ]; then
     GIT_COMMAND="$GIT_COMMAND $BRANCH:master"
