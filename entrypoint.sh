@@ -19,7 +19,7 @@ GIT_COMMAND="$GIT_COMMAND git push dokku"
 
 
 if [ -n "$BRANCH" ]; then
-    git checkout $BRANCH
+    git checkout dokku/$BRANCH
     GIT_COMMAND="$GIT_COMMAND $BRANCH:master"
 else
     GIT_COMMAND="$GIT_COMMAND HEAD:master"
