@@ -17,7 +17,7 @@ GIT_SSH_COMMAND="git remote add dokku@$HOST:$PROJECT &&"
 GIT_COMMAND="$GIT_COMMAND git push dokku"
 
 if [ -n "$BRANCH" ]; then
-    GIT_COMMAND="$GIT_COMMAND $BRANCH:master"
+    GIT_COMMAND="git checkout $BRANCH && $GIT_COMMAND $BRANCH:master"
 else
     GIT_COMMAND="$GIT_COMMAND HEAD:master"
 fi
