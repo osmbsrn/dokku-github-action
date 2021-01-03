@@ -14,10 +14,10 @@ echo "Adding dokku as a git remote"
 
 GIT_SSH_COMMAND="git remote add dokku@$HOST:$PROJECT &&"
 
-GIT_COMMAND="$GIT_COMMAND git push"
+GIT_COMMAND="$GIT_COMMAND git push dokku"
 
 if [ -n "$BRANCH" ]; then
-    GIT_COMMAND="$GIT_COMMAND $BRANCH:master HEAD:release"
+    GIT_COMMAND="$GIT_COMMAND $BRANCH:master"
 else
     GIT_COMMAND="$GIT_COMMAND HEAD:master"
 fi
