@@ -14,7 +14,7 @@ echo "Adding dokku as a git remote"
 
 GIT_SSH_COMMAND="git remote add dokku@$HOST:$PROJECT &&"
 
-GIT_COMMAND="$GIT_COMMAND git push dokku"
+GIT_COMMAND="$GIT_COMMAND git push dokku@$HOST:$PROJECT"
 
 
 
